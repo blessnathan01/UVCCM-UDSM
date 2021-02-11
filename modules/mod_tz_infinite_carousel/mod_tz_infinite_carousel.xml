@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="3.0" type="module" client="site" method="upgrade">
+    <name>TZ Infinite Carousel</name>
+    <author>Sonny</author>
+    <creationDate>September 2019</creationDate>
+    <copyright>Copyright (C) 2011-2019 TZ Portfolio.com. All rights reserved.</copyright>
+    <license>GNU/GPL v2 or later http://www.gnu.org/licenses/gpl-2.0.html</license>
+    <authorEmail>support@templaza.com</authorEmail>
+    <authorUrl>www.tzportfolio.com/</authorUrl>
+    <version>1.0.1</version>
+    <description>MOD_TZ_INFINITE_CAROUSEL_XML_DESCRIPTION</description>
+    <files>
+        <filename module="mod_tz_infinite_carousel">mod_tz_infinite_carousel.php</filename>
+        <folder>css</folder>
+        <folder>js</folder>
+        <folder>tmpl</folder>
+        <filename>helper.php</filename>
+        <filename>index.html</filename>
+        <filename>mod_tz_infinite_carousel.xml</filename>
+    </files>
+    <languages folder="languages">
+        <language tag="en-GB">en-GB/en-GB.mod_tz_infinite_carousel.ini</language>
+        <language tag="en-GB">en-GB/en-GB.mod_tz_infinite_carousel.sys.ini</language>
+    </languages>
+    <config>
+        <fields name="params">
+            <fieldset name="basic" addfieldpath="administrator/components/com_tz_portfolio_plus/models/fields">
+                <field type="tzcategory" name="catid"
+                       multiple="true"
+                       label="JCATEGORY">
+                    <option value="">JOPTION_ALL_CATEGORIES</option>
+                </field>
+                <field type="tzmediatypes" name="media_types"
+                       multiple="true"
+                       label="MOD_TZ_INFINITE_CAROUSEL_MEDIA_TYPES_LABEL">
+                    <option value="">MOD_TZ_INFINITE_CAROUSEL_ALL_MEDIA_TYPES</option>
+                    <option value="none">MOD_TZ_INFINITE_CAROUSEL_NO_MEDIA</option>
+                </field>
+                <field type="number" name="article_limit"
+                       default="12"
+                       label="MOD_TZ_INFINITE_CAROUSEL_ARTICLE_LIMIT_LABEL"
+                       description="MOD_TZ_INFINITE_CAROUSEL_ARTICLE_LIMIT_DESC"/>
+                <field type="list" name="orderby_sec"
+                       default="rdate"
+                       label="JGLOBAL_ARTICLE_ORDER_LABEL"
+                       description="JGLOBAL_ARTICLE_ORDER_DESC">
+                    <option value="rdate">JGLOBAL_MOST_RECENT_FIRST</option>
+                    <option value="date">JGLOBAL_OLDEST_FIRST</option>
+                    <option value="alpha">JGLOBAL_TITLE_ALPHABETICAL</option>
+                    <option value="ralpha">JGLOBAL_TITLE_REVERSE_ALPHABETICAL</option>
+                    <option value="author">JGLOBAL_AUTHOR_ALPHABETICAL</option>
+                    <option value="rauthor">JGLOBAL_AUTHOR_REVERSE_ALPHABETICAL</option>
+                    <option value="hits">JGLOBAL_MOST_HITS</option>
+                    <option value="rhits">JGLOBAL_LEAST_HITS</option>
+                    <option value="order">JGLOBAL_ARTICLE_MANAGER_ORDER</option>
+                </field>
+
+                <field type="list" name="infinite_carousel_column"
+                       default="4"
+                       label="MOD_TZ_INFINITE_CAROUSEL_COLUMNS_LABEL">
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="6">6</option>
+                </field>
+                <field type="text" name="slider_height"
+                       default="450px"
+                       label="MOD_TZ_INFINITE_CAROUSEL_SLIDER_HEIGHT"
+                       description="MOD_TZ_INFINITE_CAROUSEL_SLIDER_HEIGHT_DESC"/>
+                <field type="number" name="timer"
+                       default="1000"
+                       label="MOD_TZ_INFINITE_CAROUSEL_TIMER_LABEL"
+                       description="MOD_TZ_INFINITE_CAROUSEL_TIMER_DESC"/>
+                <field type="radio" name="enable_bootstrap"
+                       default="1" class="switcher btn-group"
+                       label="MOD_TZ_FLEX_ENABLE_BOOTSTRAP_LIBRARY_LABEL">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+                <field type="list" name="bootstrapversion"
+                       default="4"
+                       showon="enable_bootstrap:1"
+                       label="MOD_TZ_FLEX_BOOTSTRAP_VERSION">
+                    <option value="3">JGLOBAL_SEF_ADVANCED_LEGACY</option>
+                    <option value="4">v4</option>
+                </field>
+            </fieldset>
+
+            <fieldset name="grid_options" label="MOD_TZ_INFINITE_CAROUSEL_OPTIONS_FIELDSET_LABEL">
+                <field type="radio" name="show_lightbox"
+                       class="btn-group" default="1"
+                       label="MOD_TZ_INFINITE_CAROUSEL_SHOW_LIGHTBOX_LABEL"
+                       description="MOD_TZ_INFINITE_CAROUSEL_SHOW_LIGHTBOX_DESC">
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                </field>
+                <field name="article_lightbox_option" type="List"
+                       label="MOD_TZ_FLEX_LIGHTBOX_LABEL"
+                       description="MOD_TZ_FLEX_LIGHTBOX_LABEL"
+                       multiple="true"
+                       default="[&quot;zoom&quot;, &quot;slideShow&quot;, &quot;fullScreen&quot;, &quot;thumbs&quot;, &quot;close&quot;]">
+                    <option value="zoom">zoom</option>
+                    <option value="share">share</option>
+                    <option value="slideShow">slideShow</option>
+                    <option value="fullScreen">fullScreen</option>
+                    <option value="download">download</option>
+                    <option value="thumbs">thumbs</option>
+                    <option value="close">close</option>
+                </field>
+                <field type="radio" name="show_title"
+                       class="btn-group" default="1"
+                       label="MOD_TZ_INFINITE_CAROUSEL_SHOW_TITLE_LABEL"
+                       description="MOD_TZ_INFINITE_CAROUSEL_SHOW_TITLE_DESC">
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                </field>
+                <field type="radio" name="show_introtext"
+                       class="btn-group" default="0"
+                       label="MOD_TZ_INFINITE_CAROUSEL_SHOW_INTROTEXT_LABEL"
+                       description="MOD_TZ_INFINITE_CAROUSEL_SHOW_INTROTEXT_DESC">
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                </field>
+                <field type="number" name="introtext_limit"
+                       showon="show_introtext:1"
+                       label="MOD_TZ_INFINITE_CAROUSEL_INTROTEXT_LIMIT_LABEL"
+                       description="MOD_TZ_INFINITE_CAROUSEL_INTROTEXT_LIMIT_DESC"/>
+                <field type="radio" name="show_created_date"
+                       class="btn-group" default="1"
+                       label="MOD_TZ_INFINITE_CAROUSEL_SHOW_CREATED_DATE_LABEL"
+                       description="MOD_TZ_INFINITE_CAROUSEL_SHOW_CREATED_DATE_DESC">
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                </field>
+                <field type="radio" name="show_modified_date"
+                       class="btn-group" default="0"
+                       label="MOD_TZ_INFINITE_CAROUSEL_SHOW_MODIFIED_DATE_LABEL"
+                       description="MOD_TZ_INFINITE_CAROUSEL_SHOW_MODIFIED_DATE_DESC">
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                </field>
+                <field type="radio" name="show_publish_date"
+                       class="btn-group" default="0"
+                       label="MOD_TZ_INFINITE_CAROUSEL_SHOW_PUBLISH_DATE_LABEL"
+                       description="MOD_TZ_INFINITE_CAROUSEL_SHOW_PUBLISH_DATE_DESC">
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                </field>
+                <field type="radio" name="show_hit"
+                       class="btn-group" default="0"
+                       label="MOD_TZ_INFINITE_CAROUSEL_SHOW_HIT_LABEL"
+                       description="MOD_TZ_INFINITE_CAROUSEL_SHOW_HIT_DESC">
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                </field>
+                <field type="radio" name="show_author"
+                       class="btn-group" default="0"
+                       label="MOD_TZ_INFINITE_CAROUSEL_SHOW_AUTHOR_LABEL"
+                       description="MOD_TZ_INFINITE_CAROUSEL_SHOW_AUTHOR_DESC">
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                </field>
+                <field type="radio" name="show_category"
+                       class="btn-group" default="1"
+                       label="MOD_TZ_INFINITE_CAROUSEL_SHOW_CATEGORY_MAIN_LABEL"
+                       description="MOD_TZ_INFINITE_CAROUSEL_SHOW_CATEGORY_MAIN_DESC">
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                </field>
+                <field type="radio" name="show_tag"
+                       class="btn-group" default="0"
+                       label="MOD_TZ_INFINITE_CAROUSEL_SHOW_TAG_LABEL"
+                       description="MOD_TZ_INFINITE_CAROUSEL_SHOW_TAG_DESC">
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                </field>
+                <field type="radio" name="show_readmore"
+                       class="btn-group" default="0"
+                       label="MOD_TZ_INFINITE_CAROUSEL_SHOW_READ_MORE_LABEL"
+                       description="MOD_TZ_INFINITE_CAROUSEL_SHOW_READ_MORE_DESC">
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                </field>
+                <field type="radio" name="show_noauth"
+                       class="btn-group" default="0"
+                       label="MOD_TZ_INFINITE_CAROUSEL_SHOW_UNAUTHORISED_LINKS_LABEL"
+                       description="MOD_TZ_INFINITE_CAROUSEL_SHOW_UNAUTHORISED_LINKS_DESC">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+
+                <field type="radio" name="show_view_all"
+                       class="btn-group switcher" default="0"
+                       label="MOD_TZ_INFINITE_CAROUSEL_SHOW_VIEW_ALL_PORTFOLIOS_LABEL"
+                       description="MOD_TZ_INFINITE_CAROUSEL_SHOW_VIEW_ALL_PORTFOLIOS_DESC">
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                </field>
+                <field type="text" name="view_all_link"
+                       showon="show_view_all:1"
+                       label="MOD_TZ_INFINITE_CAROUSEL_LINK"
+                       description="MOD_TZ_INFINITE_CAROUSEL_LINK_DESC"/>
+                <field type="text" name="view_all_text"
+                       default="View All Portfolios"
+                       showon="show_view_all:1"
+                       label="MOD_TZ_INFINITE_CAROUSEL_TEXT"
+                       description="MOD_TZ_INFINITE_CAROUSEL_TEXT_DESC"/>
+                <field type="list" name="view_all_target"
+                       showon="show_view_all:1"
+                       label="MOD_TZ_INFINITE_CAROUSEL_TARGET_WINDOW_LABEL"
+                       description="MOD_TZ_INFINITE_CAROUSEL_TARGET_WINDOW_DESC">
+                    <option value="">MOD_TZ_INFINITE_CAROUSEL_VALUE_PARENT_WINDOW</option>
+                    <option value="_blank">MOD_TZ_INFINITE_CAROUSEL_VALUE_NEW_WINDOW</option>
+                </field>
+
+                <field type="menuitem" name="usermenuitem"
+                       default="auto"
+                       label="MOD_TZ_INFINITE_CAROUSEL_MENU_ITEM_AUTHOR_LABEL"
+                       description="MOD_TZ_INFINITE_CAROUSEL_MENU_ITEM_AUTHOR_DESC">
+                    <option value="auto">JGLOBAL_AUTO</option>
+                </field>
+                <field type="menuitem" name="tagmenuitem"
+                       default="auto"
+                       label="MOD_TZ_INFINITE_CAROUSEL_MENU_ITEM_TAG_LABEL"
+                       description="MOD_TZ_INFINITE_CAROUSEL_MENU_ITEM_TAG_DESC">
+                    <option value="auto">JGLOBAL_AUTO</option>
+                </field>
+            </fieldset>
+
+            <fieldset name="advanced">
+                <field type="modulelayout" name="layout"
+                       label="JFIELD_ALT_LAYOUT_LABEL"
+                       description="JFIELD_ALT_MODULE_LAYOUT_DESC"/>
+                <field type="textarea" name="moduleclass_sfx"
+                       rows="3"
+                       label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"
+                       description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC"/>
+
+                <field type="list" name="cache"
+                       default="1"
+                       label="COM_MODULES_FIELD_CACHING_LABEL"
+                       description="COM_MODULES_FIELD_CACHING_DESC">
+                    <option value="1">JGLOBAL_USE_GLOBAL</option>
+                    <option value="0">COM_MODULES_FIELD_VALUE_NOCACHING</option>
+                </field>
+                <field type="number" name="cache_time"
+                       default="900"
+                       label="COM_MODULES_FIELD_CACHE_TIME_LABEL"
+                       description="COM_MODULES_FIELD_CACHE_TIME_DESC"/>
+
+                <field type="hidden" name="cachemode"
+                       default="itemid">
+                    <option value="itemid"></option>
+                </field>
+            </fieldset>
+        </fields>
+    </config>
+    <updateservers>
+        <server type="extension" pirority="1" name="TZ Infinite Carousel Module">
+            <![CDATA[https://www.tzportfolio.com/tzupdates/mod_tz_infinite_carousel.xml]]>
+        </server>
+    </updateservers>
+</extension>

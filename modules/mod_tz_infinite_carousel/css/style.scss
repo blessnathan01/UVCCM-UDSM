@@ -1,0 +1,85 @@
+.tz-infinite-carousel {
+  position: relative;
+  .row {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+  .tz-infinite-item {
+    opacity: 0;
+    overflow: hidden;
+    color: white;
+    text-align: center;
+    -webkit-transition: 1s opacity;
+    -moz-transition: 1s opacity;
+    -o-transition: 1s opacity;
+    transition: 1s opacity;
+    &.active {
+      opacity: 1;
+    }
+    a {
+      color: #ffffff;
+      &.rating-item {
+        color: yellow;
+      }
+    }
+  }
+  .tz-item-container {
+    position: relative;
+    margin: 15px 0;
+  }
+  .tz-item-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0,0,0,0.3);
+    padding: 15px;
+    z-index: 2;
+  }
+  .tz-item-media {
+    -webkit-transition: all .5s;
+    -moz-transition: all .5s;
+    -o-transition: all .5s;
+    transition: all .5s;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background-size: cover;
+    background-position: center;
+    z-index: 1;
+    > div {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+  .tz-item-lightbox {
+    font-size: 36px;
+  }
+  .tz-item-meta {
+    width: 100%;
+  }
+  .tz-item-view-all {
+    margin-top: 2rem;
+  }
+  .tpp-addon__vote {
+    .tpp-counter {
+      background-color: #39b54a;
+      color: white;
+      padding: 0 10px;
+      border-radius: 20px;
+    }
+  }
+}

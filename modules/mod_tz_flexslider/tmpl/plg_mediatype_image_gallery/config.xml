@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+    <fields name="params">
+        <fieldset name="basic">
+            <field type="spacer" name="spacer_mt_image_gallery_name"
+                   class="alert alert-warning btn-block"
+                   label="PLG_MEDIATYPE_IMAGE_GALLERY_OPTIONS_LABEL"/>​
+            <field type="tzimagesizelist" name="mt_img_gallery_size"
+                   addon="image_gallery"
+                   addon_group="mediatype"
+                   param_name="image_gallery_size"
+                   param_text="title"
+                   param_value="image_name_prefix"
+                   label="PLG_MEDIATYPE_IMAGE_GALLERY_SIZE_LABEL">
+                <option value="o">PLG_MEDIATYPE_IMAGE_GALLERY_ORIGINAL</option>
+            </field>
+            <field type="tzimagesizelist" name="mt_image_gallery_flex_thumbnail_size"
+                   addon="image_gallery"
+                   addon_group="mediatype"
+                   param_name="image_gallery_size"
+                   param_text="title"
+                   param_value="image_name_prefix"
+                   label="MO_TZ_PORTFOLIO_PLUS_FLEXSLIDER_IMAGE_THUMBNAIL_SIZE_LABEL"
+                   description="MO_TZ_PORTFOLIO_PLUS_FLEXSLIDER_IMAGE_THUMBNAIL_SIZE_DESC">
+                <option value="o">PLG_MEDIATYPE_IMAGE_ORIGINAL</option>
+            </field>
+        </fieldset>
+    </fields>
+</form>

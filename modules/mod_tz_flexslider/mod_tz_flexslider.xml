@@ -1,0 +1,457 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="3.0" type="module" client="site" method="upgrade">
+    <name>TZ FlexSlider</name>
+    <author>DuongTVTemplaza</author>
+    <creationDate>30/01/2020</creationDate>
+    <copyright>Copyright (C) 2015-2020 TemPlaza. All rights reserved.</copyright>
+    <license>GNU/GPL v2 or later http://www.gnu.org/licenses/gpl-2.0.html</license>
+    <authorEmail>support@templaza.com</authorEmail>
+    <authorUrl>http://www.tzportfolio.com</authorUrl>
+    <familyUrl>http://www.templaza.com</familyUrl>
+    <guideUrl>https://www.tzportfolio.com/document.html</guideUrl>
+    <facebookUrl>https://www.facebook.com/tzportfolio</facebookUrl>
+    <forumUrl>https://www.tzportfolio.com/help/forum.html</forumUrl>
+    <pricingUrl>https://www.tzportfolio.com/pricing.html</pricingUrl>
+    <jedUrl>https://extensions.joomla.org/extension/tz-portfolio</jedUrl>
+    <feedBlogUrl>http://feeds.feedburner.com/tzportfolio/blog</feedBlogUrl>
+    <facebookGroupUrl>https://www.facebook.com/groups/tzportfolio</facebookGroupUrl>
+    <transifexUrl>https://www.transifex.com/templaza-com/tz-portfolio-plus</transifexUrl>
+    <youtubeUrl>https://www.youtube.com/channel/UCrLN8LMXTyTahwDKzQ-YOqg/videos</youtubeUrl>
+    <version>1.0.0</version>
+    <description>MOD_TZ_PORTFOLIO_PLUS_FLEXSLIDER_XML_DESCRIPTION</description>
+    <files>
+        <filename module="mod_tz_flexslider">mod_tz_flexslider.php</filename>
+        <folder>css</folder>
+        <folder>js</folder>
+        <folder>tmpl</folder>
+        <filename>helper.php</filename>
+        <filename>index.html</filename>
+        <filename>mod_tz_flexslider.xml</filename>
+    </files>
+    <languages folder="language">
+        <language tag="en-GB">en-GB/en-GB.mod_tz_flexslider.ini</language>
+        <language tag="en-GB">en-GB/en-GB.mod_tz_flexslider.sys.ini</language>
+    </languages>
+    <config>
+        <fields name="params">
+            <fieldset name="basic" addfieldpath="administrator/components/com_tz_portfolio_plus/models/fields">
+                <field type="tzcategory" name="catid"
+                       multiple="true"
+                       label="JCATEGORY">
+                    <option value="">JOPTION_ALL_CATEGORIES</option>
+                </field>
+                <field type="tzmediatypes" name="media_types"
+                       multiple="true"
+                       label="MOD_TZ_PORTFOLIO_PLUS_FLEXSLIDER_MEDIA_TYPES_LABEL">
+                    <option value="">MOD_TZ_PORTFOLIO_PLUS_FLEXSLIDER_ALL_MEDIA_TYPES</option>
+                    <option value="none">MOD_TZ_PORTFOLIO_PLUS_FLEXSLIDER_NO_MEDIA</option>
+                </field>
+                <field type="tztemplates" name="template_id"
+                       label="COM_TZ_PORTFOLIO_PLUS_TEMPLATE_LABEL">
+                    <option value="0">JOPTION_USE_DEFAULT</option>
+                </field>
+                <field type="number" name="article_limit"
+                       default="5"
+                       label="MOD_TZ_PORTFOLIO_PLUS_FLEXSLIDER_ARTICLE_LIMIT_LABEL"
+                       description="MOD_TZ_PORTFOLIO_PLUS_FLEXSLIDER_ARTICLE_LIMIT_DESC"/>
+                <field type="list" name="orderby_sec"
+                       default="rdate"
+                       label="JGLOBAL_ARTICLE_ORDER_LABEL"
+                       description="JGLOBAL_ARTICLE_ORDER_DESC">
+                    <option value="rdate">JGLOBAL_MOST_RECENT_FIRST</option>
+                    <option value="date">JGLOBAL_OLDEST_FIRST</option>
+                    <option value="alpha">JGLOBAL_TITLE_ALPHABETICAL</option>
+                    <option value="ralpha">JGLOBAL_TITLE_REVERSE_ALPHABETICAL</option>
+                    <option value="author">JGLOBAL_AUTHOR_ALPHABETICAL</option>
+                    <option value="rauthor">JGLOBAL_AUTHOR_REVERSE_ALPHABETICAL</option>
+                    <option value="hits">JGLOBAL_MOST_HITS</option>
+                    <option value="rhits">JGLOBAL_LEAST_HITS</option>
+                    <option value="order">JGLOBAL_ARTICLE_MANAGER_ORDER</option>
+                </field>
+                <field type="radio" name="show_title"
+                       class="btn-group" default="1"
+                       label="JGLOBAL_SHOW_TITLE_LABEL"
+                       description="JGLOBAL_SHOW_TITLE_DESC">
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                </field>
+                <field type="radio" name="show_introtext"
+                       class="btn-group" default="1"
+                       label="JGLOBAL_SHOW_INTRO_LABEL"
+                       description="MOD_TZ_PORTFOLIO_PLUS_FLEXSLIDER_SHOW_INTROTEXT_DESC">
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                </field>
+                <field type="number" name="introtext_limit"
+                       showon="show_introtext:1"
+                       label="JGLOBAL_ARCHIVE_ARTICLES_FIELD_INTROTEXTLIMIT_LABEL"
+                       description="JGLOBAL_ARCHIVE_ARTICLES_FIELD_INTROTEXTLIMIT_DESC"/>
+                <field type="radio" name="show_created_date"
+                       class="btn-group" default="1"
+                       label="JGLOBAL_SHOW_CREATE_DATE_LABEL"
+                       description="JGLOBAL_SHOW_CREATE_DATE_DESC">
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                </field>
+                <field type="radio" name="show_modified_date"
+                       class="btn-group" default="1"
+                       label="JGLOBAL_SHOW_MODIFY_DATE_LABEL"
+                       description="JGLOBAL_SHOW_MODIFY_DATE_DESC">
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                </field>
+                <field type="radio" name="show_publish_date"
+                       class="btn-group" default="1"
+                       label="JGLOBAL_SHOW_PUBLISH_DATE_LABEL"
+                       description="JGLOBAL_SHOW_PUBLISH_DATE_DESC">
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                </field>
+                <field type="radio" name="show_hit"
+                       class="btn-group" default="1"
+                       label="JGLOBAL_SHOW_HITS_LABEL"
+                       description="JGLOBAL_SHOW_HITS_DESC">
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                </field>
+                <field type="radio" name="show_author"
+                       class="btn-group" default="1"
+                       label="JGLOBAL_SHOW_AUTHOR_LABEL"
+                       description="JGLOBAL_SHOW_AUTHOR_DESC">
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                </field>
+                <field type="radio" name="show_category_main"
+                       class="btn-group" default="1"
+                       label="MOD_TZ_PORTFOLIO_PLUS_FLEXSLIDER_SHOW_CATEGORY_MAIN_LABEL"
+                       description="MOD_TZ_PORTFOLIO_PLUS_FLEXSLIDER_SHOW_CATEGORY_MAIN_DESC">
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                </field>
+                <field type="radio" name="show_category_sec"
+                       class="btn-group" default="1"
+                       label="MOD_TZ_PORTFOLIO_PLUS_FLEXSLIDER_SHOW_CATEGORY_SEC_LABEL"
+                       description="MOD_TZ_PORTFOLIO_PLUS_FLEXSLIDER_SHOW_CATEGORY_SEC_DESC">
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                </field>
+                <field type="radio" name="show_tag"
+                       class="btn-group" default="1"
+                       label="JGLOBAL_SHOW_TAGS_LABEL"
+                       description="MOD_TZ_PORTFOLIO_PLUS_FLEXSLIDER_SHOW_TAG_DESC">
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                </field>
+                <field type="radio" name="show_readmore"
+                       class="btn-group" default="1"
+                       label="MOD_TZ_PORTFOLIO_PLUS_FLEXSLIDER_SHOW_READ_MORE_LABEL"
+                       description="MOD_TZ_PORTFOLIO_PLUS_FLEXSLIDER_SHOW_READ_MORE_DESC">
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                </field>
+                <field type="radio" name="show_noauth"
+                       class="btn-group" default="0"
+                       label="JGLOBAL_SHOW_UNAUTH_LINKS_LABEL"
+                       description="JGLOBAL_SHOW_UNAUTH_LINKS_DESC">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+
+                <field type="radio" name="show_view_all"
+                       class="btn-group switcher" default="0"
+                       label="MOD_TZ_PORTFOLIO_PLUS_FLEXSLIDER_SHOW_VIEW_ALL_PORTFOLIOS_LABEL"
+                       description="MOD_TZ_PORTFOLIO_PLUS_FLEXSLIDER_SHOW_VIEW_ALL_PORTFOLIOS_DESC">
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                </field>
+                <field type="text" name="view_all_link"
+                       showon="show_view_all:1"
+                       label="MOD_TZ_PORTFOLIO_PLUS_FLEXSLIDER_LINK"
+                       description="MOD_TZ_PORTFOLIO_PLUS_FLEXSLIDER_LINK_DESC"/>
+                <field type="text" name="view_all_text"
+                       default="View All Portfolios"
+                       showon="show_view_all:1"
+                       label="MOD_TZ_PORTFOLIO_PLUS_FLEXSLIDER_TEXT"
+                       description="MOD_TZ_PORTFOLIO_PLUS_FLEXSLIDER_TEXT_DESC"/>
+                <field type="list" name="view_all_target"
+                       showon="show_view_all:1"
+                       label="MOD_TZ_PORTFOLIO_PLUS_FLEXSLIDER_TARGET_WINDOW_LABEL"
+                       description="MOD_TZ_PORTFOLIO_PLUS_FLEXSLIDER_TARGET_WINDOW_DESC">
+                    <option value="">MOD_TZ_PORTFOLIO_PLUS_FLEXSLIDER_VALUE_PARENT_WINDOW</option>
+                    <option value="_blank">MOD_TZ_PORTFOLIO_PLUS_FLEXSLIDER_VALUE_NEW_WINDOW</option>
+                </field>
+                <field type="radio" name="show_extrafields"
+                       default="1" class="switcher btn-group"
+                       label="MOD_TZ_PORTFOLIO_PLUS_FLEXSLIDER_SHOW_EXTRAFIELDS">
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                </field>
+
+                <field type="menuitem" name="usermenuitem"
+                       default="auto"
+                       label="MOD_TZ_PORTFOLIO_PLUS_FLEXSLIDER_MENU_ITEM_AUTHOR_LABEL"
+                       description="MOD_TZ_PORTFOLIO_PLUS_FLEXSLIDER_MENU_ITEM_AUTHOR_DESC">
+                    <option value="auto">JGLOBAL_AUTO</option>
+                </field>
+                <field type="menuitem" name="tagmenuitem"
+                       default="auto"
+                       label="MOD_TZ_PORTFOLIO_PLUS_FLEXSLIDER_MENU_ITEM_TAG_LABEL"
+                       description="MOD_TZ_PORTFOLIO_PLUS_FLEXSLIDER_MENU_ITEM_TAG_DESC">
+                    <option value="auto">JGLOBAL_AUTO</option>
+                </field>
+            </fieldset>
+
+            <fieldset name="mod_tpp_flexslider_options"
+                      label="MOD_TZ_PORTFOLIO_PLUS_FLEXSLIDER_OPTIONS_FIELDSET_LABEL">
+                <field type="list" name="flex_animation"
+                       default="fade"
+                       label="MOD_TZ_PORTFOLIO_PLUS_FLEXSLIDER_ANIMATION"
+                       description="MOD_TZ_PORTFOLIO_PLUS_FLEXSLIDER_ANIMATION_DESC">
+                    <option value="fade">MOD_TZ_PORTFOLIO_PLUS_FLEXSLIDER_FADE</option>
+                    <option value="slide">MOD_TZ_PORTFOLIO_PLUS_FLEXSLIDER_SLIDE</option>
+                </field>
+                <field type="radio" name="flex_fadeFirstSlide"
+                       default="1" class="switcher btn-group"
+                       showon="flex_animation:fade"
+                       label="MOD_TZ_PORTFOLIO_PLUS_FLEXSLIDER_FADE_FIRST_SLIDE"
+                       description="MOD_TZ_PORTFOLIO_PLUS_FLEXSLIDER_FADE_FIRST_SLIDE_DESC">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+                <field type="list" name="flex_direction"
+                       default="horizontal"
+                       showon="flex_animation:slide"
+                       label="MOD_TZ_PORTFOLIO_PLUS_FLEXSLIDER_DIRECTION">
+                    <option value="horizontal">MOD_TZ_PORTFOLIO_PLUS_FLEXSLIDER_HORIZONTAL</option>
+                    <option value="vertical">MOD_TZ_PORTFOLIO_PLUS_FLEXSLIDER_VERTICAL</option>
+                </field>
+                <field type="list" name="flex_easing"
+                       default="swing"
+                       label="MOD_TZ_PORTFOLIO_PLUS_FLEXSLIDER_EASING">
+                    <option value="swing">MOD_TZ_PORTFOLIO_PLUS_FLEXSLIDER_SWING</option>
+                    <option value="linear">MOD_TZ_PORTFOLIO_PLUS_FLEXSLIDER_LINEAR</option>
+                </field>
+                <field type="radio" name="flex_reverse"
+                       default="0" class="switcher btn-group"
+                       label="MOD_TZ_PORTFOLIO_PLUS_FLEXSLIDER_REVERSE"
+                       description="MOD_TZ_PORTFOLIO_PLUS_FLEXSLIDER_REVERSE_DESC">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+                <field type="radio" name="flex_animationLoop"
+                       default="1" class="switcher btn-group"
+                       label="MOD_TZ_PORTFOLIO_PLUS_FLEXSLIDER_LOOP"
+                       description="MOD_TZ_PORTFOLIO_PLUS_FLEXSLIDER_LOOP_DESC">
+                    <option value="0">JNO</option>
+                    <option value="1">JTRUE</option>
+                </field>
+                <field type="radio" name="flex_smoothHeight"
+                       default="0" class="switcher btn-group"
+                       label="MOD_TZ_PORTFOLIO_PLUS_FLEXSLIDER_SMOOTH_HEIGHT"
+                       description="MOD_TZ_PORTFOLIO_PLUS_FLEXSLIDER_SMOOTH_HEIGHT_DESC">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+                <field type="number" name="flex_startAt"
+                       default="0" min="0"
+                       label="MOD_TZ_PORTFOLIO_PLUS_FLEXSLIDER_START_AT"
+                       description="MOD_TZ_PORTFOLIO_PLUS_FLEXSLIDER_START_AT_DESC"/>
+                <field type="radio" name="flex_slideshow"
+                       default="1" class="switcher btn-group"
+                       label="MOD_TZ_PORTFOLIO_PLUS_FLEXSLIDER_SLIDESHOW"
+                       description="MOD_TZ_PORTFOLIO_PLUS_FLEXSLIDER_SLIDESHOW_DESC">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+                <field type="number" name="flex_slideshowSpeed"
+                       default="7000" min="0"
+                       label="MOD_TZ_PORTFOLIO_PLUS_FLEXSLIDER_SLIDESHOW_SPEED"
+                       description="MOD_TZ_PORTFOLIO_PLUS_FLEXSLIDER_SLIDESHOW_SPEED_DESC"/>
+                <field type="number" name="flex_animationSpeed"
+                       default="600" min="0"
+                       label="MOD_TZ_PORTFOLIO_PLUS_FLEXSLIDER_ANIMATION_SPEED"
+                       description="MOD_TZ_PORTFOLIO_PLUS_FLEXSLIDER_ANIMATION_SPEED_DESC"/>
+                <!--<field type="number" name="flex_initDelay"-->
+                       <!--default="0" min="0"-->
+                       <!--label="MOD_TZ_PORTFOLIO_PLUS_FLEXSLIDER_INIT_DELAY"-->
+                       <!--description="MOD_TZ_PORTFOLIO_PLUS_FLEXSLIDER_INIT_DELAY_DESC"/>-->
+                <field type="radio" name="flex_pauseOnAction"
+                       default="1" class="switcher btn-group"
+                       label="MOD_TZ_PORTFOLIO_PLUS_FLEXSLIDER_PAUSE_ON_ACTION"
+                       description="MOD_TZ_PORTFOLIO_PLUS_FLEXSLIDER_PAUSE_ON_ACTION_DESC">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+                <field type="radio" name="flex_pauseOnHover"
+                       default="0" class="switcher btn-group"
+                       label="MOD_TZ_PORTFOLIO_PLUS_FLEXSLIDER_PAUSE_ON_HOVER"
+                       description="MOD_TZ_PORTFOLIO_PLUS_FLEXSLIDER_PAUSE_ON_HOVER_DESC">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+                <field type="radio" name="flex_pauseInvisible"
+                       default="1" class="switcher btn-group"
+                       label="MOD_TZ_PORTFOLIO_PLUS_FLEXSLIDER_PAUSE_INVISIBLE"
+                       description="MOD_TZ_PORTFOLIO_PLUS_FLEXSLIDER_PAUSE_INVISIBLE_DESC">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+                <field type="radio" name="flex_touch"
+                       default="1" class="switcher btn-group"
+                       label="MOD_TZ_PORTFOLIO_PLUS_FLEXSLIDER_TOUCH"
+                       description="MOD_TZ_PORTFOLIO_PLUS_FLEXSLIDER_TOUCH_DESC">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+                <field type="list" name="flex_controlNav"
+                       default="none"
+                       label="MOD_TZ_PORTFOLIO_PLUS_FLEXSLIDER_CONTROL_NAVIGATION"
+                       description="MOD_TZ_PORTFOLIO_PLUS_FLEXSLIDER_CONTROL_NAVIGATION_DESC">
+                    <option value="none">JDEFAULT</option>
+                    <option value="thumbnails">MOD_TZ_PORTFOLIO_PLUS_FLEXSLIDER_THUMBNAIL</option>
+                    <option value="thumbnail_slider">MOD_TZ_PORTFOLIO_PLUS_FLEXSLIDER_THUMBNAIL_SLIDER</option>
+                </field>
+
+                <!-- Carousel Options: show with controlNav is thumbnail_slider -->
+                <field type="number" name="flex_itemWidth"
+                       default="0" min="0"
+                       showon="flex_controlNav:thumbnail_slider"
+                       label="MOD_TZ_PORTFOLIO_PLUS_FLEXSLIDER_ITEM_WIDTH"
+                       description="MOD_TZ_PORTFOLIO_PLUS_FLEXSLIDER_ITEM_WIDTH_DESC"/>
+                <field type="number" name="flex_itemMargin"
+                       default="0" min="0"
+                       showon="flex_controlNav:thumbnail_slider"
+                       label="MOD_TZ_PORTFOLIO_PLUS_FLEXSLIDER_ITEM_MARGIN"
+                       description="MOD_TZ_PORTFOLIO_PLUS_FLEXSLIDER_ITEM_MARGIN_DESC"/>
+                <field type="number" name="flex_minItems"
+                       default="1" min="1"
+                       showon="flex_controlNav:thumbnail_slider"
+                       label="MOD_TZ_PORTFOLIO_PLUS_FLEXSLIDER_MIN_ITEMS"
+                       description="MOD_TZ_PORTFOLIO_PLUS_FLEXSLIDER_MIN_ITEMS_DESC"/>
+                <field type="number" name="flex_maxItems"
+                       default="0" min="0"
+                       showon="flex_controlNav:thumbnail_slider"
+                       label="MOD_TZ_PORTFOLIO_PLUS_FLEXSLIDER_MAX_ITEMS"
+                       description="MOD_TZ_PORTFOLIO_PLUS_FLEXSLIDER_MAX_ITEMS_DESC"/>
+                <field type="number" name="flex_move"
+                       default="0" min="0"
+                       showon="flex_controlNav:thumbnail_slider"
+                       label="MOD_TZ_PORTFOLIO_PLUS_FLEXSLIDER_MOVE"
+                       description="MOD_TZ_PORTFOLIO_PLUS_FLEXSLIDER_MOVE_DESC"/>
+                <!--<field type="radio" name="flex_allowOneSlide"-->
+                       <!--default="1" class="switcher btn-group"-->
+                       <!--showon="flex_controlNav:thumbnail_slider"-->
+                       <!--label="MOD_TZ_PORTFOLIO_PLUS_FLEXSLIDER_ALLOW_ONE_SLIDE"-->
+                       <!--description="MOD_TZ_PORTFOLIO_PLUS_FLEXSLIDER_ALLOW_ONE_SLIDE_DESC">-->
+                    <!--<option value="0">JNO</option>-->
+                    <!--<option value="1">JYES</option>-->
+                <!--</field>-->
+                <!-- End Carousel Options -->
+
+                <field type="radio" name="flex_directionNav"
+                       default="1" class="switcher btn-group"
+                       label="MOD_TZ_PORTFOLIO_PLUS_FLEXSLIDER_SHOW_DIRECT_NAVIGATION"
+                       description="MOD_TZ_PORTFOLIO_PLUS_FLEXSLIDER_SHOW_DIRECT_NAVIGATION_DESC">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+                <field type="text" name="flex_prevText"
+                       showon="flex_directionNav:1"
+                       label="MOD_TZ_PORTFOLIO_PLUS_FLEXSLIDER_PREVIOUS_TEXT"
+                       description="MOD_TZ_PORTFOLIO_PLUS_FLEXSLIDER_PREVIOUS_TEXT_DESC"/>
+                <field type="text" name="flex_nextText"
+                       showon="flex_directionNav:1"
+                       label="MOD_TZ_PORTFOLIO_PLUS_FLEXSLIDER_NEXT_TEXT"
+                       description="MOD_TZ_PORTFOLIO_PLUS_FLEXSLIDER_NEXT_TEXT_DESC"/>
+                <field type="radio" name="flex_keyboard"
+                       default="1" class="switcher btn-group"
+                       label="MOD_TZ_PORTFOLIO_PLUS_FLEXSLIDER_KEYBOARD"
+                       description="MOD_TZ_PORTFOLIO_PLUS_FLEXSLIDER_KEYBOARD_DESC">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+                <field type="radio" name="flex_multipleKeyboard"
+                       default="0" class="switcher btn-group"
+                       showon="flex_keyboard:1"
+                       label="MOD_TZ_PORTFOLIO_PLUS_FLEXSLIDER_MULTIPLE_KEYBOARD"
+                       description="MOD_TZ_PORTFOLIO_PLUS_FLEXSLIDER_MULTIPLE_KEYBOARD_DESC">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+                <field type="radio" name="flex_mousewheel"
+                       default="0" class="switcher btn-group"
+                       label="MOD_TZ_PORTFOLIO_PLUS_FLEXSLIDER_MOUSE_WHEEL"
+                       description="MOD_TZ_PORTFOLIO_PLUS_FLEXSLIDER_MOUSE_WHEEL_DESC">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+                <field type="radio" name="flex_pausePlay"
+                       default="0" class="switcher btn-group"
+                       label="MOD_TZ_PORTFOLIO_PLUS_FLEXSLIDER_PAUSE_PLAY"
+                       description="MOD_TZ_PORTFOLIO_PLUS_FLEXSLIDER_PAUSE_PLAY_DESC">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+                <field type="text" name="flex_pauseText"
+                       showon="flex_pausePlay:1"
+                       label="MOD_TZ_PORTFOLIO_PLUS_FLEXSLIDER_PAUSE_TEXT"
+                       description="MOD_TZ_PORTFOLIO_PLUS_FLEXSLIDER_PAUSE_TEXT_DESC"/>
+                <field type="text" name="flex_playText"
+                       showon="flex_pausePlay:1"
+                       label="MOD_TZ_PORTFOLIO_PLUS_FLEXSLIDER_PLAY_TEXT"
+                       description="MOD_TZ_PORTFOLIO_PLUS_FLEXSLIDER_PLAY_TEXT_DESC"/>
+
+            </fieldset>
+
+            <fieldset name="advanced">
+
+                <field type="modulelayout" name="layout"
+                       label="JFIELD_ALT_LAYOUT_LABEL"
+                       description="JFIELD_ALT_MODULE_LAYOUT_DESC"/>
+                <field type="text" name="moduleclass_sfx"
+                       label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"
+                       description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC"/>
+                <field type="list" name="cache"
+                       default="1"
+                       label="COM_MODULES_FIELD_CACHING_LABEL"
+                       description="COM_MODULES_FIELD_CACHING_DESC">
+                    <option value="1">JGLOBAL_USE_GLOBAL</option>
+                    <option value="0">COM_MODULES_FIELD_VALUE_NOCACHING</option>
+                </field>
+                <field type="text" name="cache_time"
+                       default="900"
+                       label="COM_MODULES_FIELD_CACHE_TIME_LABEL"
+                       description="COM_MODULES_FIELD_CACHE_TIME_DESC"/>
+                <field type="hidden" name="cachemode"
+                       default="static">
+                    <option value="static"></option>
+                </field>
+                <field type="radio" name="enable_bootstrap"
+                       default="0" class="switcher btn-group"
+                       label="COM_TZ_PORTFOLIO_PLUS_ENABLE_BOOTSTRAP_LIBRARY_LABEL">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+                <field type="list" name="bootstrapversion"
+                       default="3"
+                       showon="enable_bootstrap:1"
+                       label="COM_TZ_PORTFOLIO_PLUS_BOOTSTRAP_VERSION">
+                    <option value="3">JGLOBAL_SEF_ADVANCED_LEGACY</option>
+                    <option value="4">v4</option>
+                </field>
+                <field type="radio" name="enable_bootstrap_js"
+                       default="1" class="switcher btn-group"
+                       showon="enable_bootstrap:1"
+                       label="COM_TZ_PORTFOLIO_PLUS_ENABLE_BOOTSTRAP_JS_LABEL">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+            </fieldset>
+        </fields>
+    </config>
+    <updateservers>
+        <server type="extension" pirority="1" name="TZ Flexslider Module">
+            <![CDATA[https://www.tzportfolio.com/tzupdates/mod_tz_portfolio_plus_flexslider.xml]]>
+        </server>
+    </updateservers>
+</extension>

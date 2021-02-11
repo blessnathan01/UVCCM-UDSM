@@ -1,0 +1,22 @@
+.tpp-module__flexslider .flex-control-nav{
+    bottom: inherit;
+}
+.tpp-module__flexslider .flex-direction-nav a{
+    line-height: 1;
+}
+.tpp-module__flexslider .flex-caption {
+    width: 96%;
+    padding: 2%;
+    left: 0;
+    bottom: 0;
+    border: 1px solid #ebebeb;
+}
+.tpp-module__flexslider [data-tpp-flexslider__carousel] img {
+    display: block;
+    opacity: .7;
+    cursor: pointer;
+}
+.tpp-module__flexslider [data-tpp-flexslider__carousel] .flex-active-slide img {
+    opacity: 1;
+    cursor: default;
+}

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="3.9" client="administrator" type="language" method="upgrade">
+	<name>Swahili (East Africa)</name>
+	<tag>sw-KE</tag>
+	<version>3.9.22.1</version>
+	<creationDate>October 2020</creationDate>
+	<author>Hassan Abdalla</author>
+	<authorEmail>hassan@att-center.de</authorEmail>
+	<authorUrl>www.att-center.de</authorUrl>
+	<copyright>Copyright (C) 2005 - 2020 Open Source Matters &amp; Hassan Abdalla. All rights reserved.</copyright>
+	<license>Leseni GNU General Public License toleo 2 au linalofuata; angalia LICENSE.txt</license>
+	<description>sw-KE administrator language</description>
+	<files>
+		<folder>/</folder>
+		<filename file="meta">install.xml</filename>
+        </files>
+        <params />
+</extension>
